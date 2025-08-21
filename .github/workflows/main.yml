@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    # Install dependencies
+    - name: Set up Python 
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.12
+
+    - name: Install mytoy
+      run: |
+        # There is a small bug here.
+        cd mytoy
+        pip install --user .
+
+    - name: Run tests
+      run: |
+        # Another small bug here.
+        cd mytoy
+        pytest
