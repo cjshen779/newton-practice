@@ -1,6 +1,8 @@
 import math 
 import numpy as np 
 
+## maybe need set maximum iterations
+
 epsilon = 0.001 
 delta = 0.0001 
 
